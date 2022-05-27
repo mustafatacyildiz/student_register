@@ -1,0 +1,27 @@
+{% extends 'student_register/base.html' %}
+
+{% block container %}
+<table>
+<h2>Student Register</h2>
+<p>Python Django project for implementing CRUD operations</p>
+<hr>
+    <tr>
+        <th>Full Name</th>
+        <th>Path</th>
+        <td><button><a href="{% url 'add' %}">+Add New</a></button></td>
+    </tr>
+</table>
+    <hr>
+        <ul>
+            {% for student in students  %}
+            <li>{{ student.full_name }}-{{ student.path }}
+            <button><a href="{% url 'update' student.id %}">UPDATE</a></button>
+            <button><a href="{% url 'delete' student.id %}">DELETE</a></button>
+            </li>  
+                {% endfor %}
+        </ul>
+                
+    </tr>
+
+
+{% endblock container %}
