@@ -4,7 +4,6 @@ from .models import Student
 from django.contrib import messages
 
 
-
 def student_add(request):
     form = StudentForm() 
     if request.method == 'POST':          
@@ -12,7 +11,7 @@ def student_add(request):
         form = StudentForm(request.POST)   
         if form.is_valid():				   
             form.save()
-            messages.success(request, f"{ student } saved successfully")
+            messages.success(request, "Student saved successfully")
             return redirect("list")					   
     context = {
         'form' : form
